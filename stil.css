@@ -1,5 +1,5 @@
 body {
-  background-color: #92a8d1;
+  background-color: grey;
 }
 .baslik {
   text-align: center;
@@ -8,17 +8,69 @@ body {
   height: 60px;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 .tanitim {
-  text-align: justify;
+  text-align: left;
   background-color: skyblue;
   font-size: medium;
   font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
-.hobilerim {
-  text-align: left;
+.futbol {
+  text-align: center;
   color: red;
   font-size: x-large;
+  width: 24%;
+  float: left;
+  height: 280px;
+  background-color: gold;
+  margin-bottom: 20px;
+}
+.basketbol {
+  text-align: center;
+  color: red;
+  font-size: x-large;
+  width: 23%;
+  float: left;
+  height: 280px;
+  background-color: chocolate;
+  margin-bottom: 20px;
+}
+.bisiklet {
+  text-align: center;
+  color: red;
+  font-size: x-large;
+  width: 24%;
+  float: left;
+  height: 280px;
+  background-color: chartreuse;
+  margin-bottom: 20px;
+}
+.piyano {
+  text-align: center;
+  color: red;
+  font-size: x-large;
+  width: 23%;
+  float: left;
+  height: 280px;
+  background-color: darkslategrey;
+  margin-bottom: 20px;
+}
+.arabosluk {
+  width: 2%;
+  height: 300px;
+  float: left;
+}
+.linkler {
+  text-align: left;
+  width: 100%;
+  height: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: lightsalmon;
+  float: left;
 }
