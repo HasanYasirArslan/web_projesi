@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="stil.css" />
+    <link rel="stylesheet" href="BOOTSTRAP/bootstrap.min.css" />
+  </head>
+  <body class="gövde">
+    <div class="topnav">
+      <a href="hakkımda.html">Hakkımda</a>
+      <a href="sehrim.html">Şehrim</a>
+      <a href="#">Özgeçmişim</a>
+      <a href="#">İlgi Alanlarım</a>
+      <a href="#">Mirasımız</a>
+      <a href="#">İletişim</a>
+      <a href="login.html">Login</a>
+    </div>
+    <div class="baslik">Login Sayfasına Hoşgeldiniz.</div>
+    <form method="post" action="login.php">
+      <div class="loginform">
+        <label for="Kullanici">Kullanıcı adı:</label>
+        <input
+          type="email"
+          name="Kullanici"
+          placeholder="Kullanıcı adınızı girin."
+          required
+        />
+      </div>
+      <div class="loginform">
+        <label for="sifre">Şifre:&emsp;&emsp;&emsp;&nbsp;</label>
+        <input
+          type="password"
+          name="Sifre"
+          placeholder="Şifrenizi girin."
+          required
+        />
+      </div>
+      <div class="loginform"><input type="submit" value="Login" /></div>
+    </form>
+  </body>
+</html>

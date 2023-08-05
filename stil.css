@@ -1,5 +1,29 @@
-body {
+.gövde {
   background-color: grey;
+  margin: 0;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: cyan;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: turquoise;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
 }
 .baslik {
   text-align: center;
@@ -17,53 +41,38 @@ body {
   font-style: italic;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 .futbol {
   text-align: center;
   color: red;
   font-size: x-large;
-  width: 24%;
   float: left;
   height: 280px;
   background-color: gold;
-  margin-bottom: 20px;
 }
 .basketbol {
   text-align: center;
   color: red;
   font-size: x-large;
-  width: 23%;
   float: left;
   height: 280px;
   background-color: chocolate;
-  margin-bottom: 20px;
 }
 .bisiklet {
   text-align: center;
   color: red;
   font-size: x-large;
-  width: 24%;
   float: left;
   height: 280px;
   background-color: chartreuse;
-  margin-bottom: 20px;
 }
 .piyano {
   text-align: center;
   color: red;
   font-size: x-large;
-  width: 23%;
   float: left;
   height: 280px;
   background-color: darkslategrey;
-  margin-bottom: 20px;
-}
-.arabosluk {
-  width: 2%;
-  height: 300px;
-  float: left;
 }
 .linkler {
   text-align: left;
@@ -73,4 +82,8 @@ body {
   padding-bottom: 15px;
   background-color: lightsalmon;
   float: left;
+}
+.loginform {
+  text-align: center;
+  background-color: aqua;
 }
