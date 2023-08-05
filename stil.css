@@ -1,5 +1,5 @@
 .gövde {
-  background-color: grey;
+  background-color: darkcyan;
   margin: 0;
 }
 .topnav {
@@ -86,4 +86,11 @@
 .loginform {
   text-align: center;
   background-color: aqua;
+}
+.iletisimform {
+  float: left;
+  text-align: center;
+}
+.sifirla {
+  clear: both;
 }
