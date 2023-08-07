@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="stil.css" />
     <link rel="stylesheet" href="BOOTSTRAP/bootstrap.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>İletişim</title>
   </head>
   <body class="gövde">
@@ -17,7 +16,7 @@
       <a href="iletişim.html">İletişim</a>
       <a href="login.html">Login</a>
     </div>
-    <form method="post" action="iletişim.php">
+    <form method="post" action="iletişim.php" id="myForm" @button="vueDenetle">
       <fieldset>
         <legend>Kişisel Bilgiler</legend>
         <div class="iletisimform">
@@ -25,6 +24,7 @@
             type="text"
             name="ad"
             id="ad"
+            v-model="ad"
             style="background-color: dodgerblue"
           />
         </div>
@@ -32,6 +32,7 @@
           Soyad:<input
             type="text"
             name="soyad"
+            v-model="soyad"
             style="background-color: dodgerblue"
           />
         </div>
@@ -41,6 +42,7 @@
             type="date"
             id="dgm"
             name="dgm"
+            v-model="dgm"
             style="background-color: dodgerblue"
           />
         </div>
@@ -49,15 +51,17 @@
             type="password"
             name="sifre"
             id="sifre"
+            v-model="sifre"
             style="background-color: dodgerblue"
           />
         </div>
         <div class="iletisimform">
           Email:
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
+            v-model="email"
             style="background-color: dodgerblue"
           />
         </div>
@@ -66,29 +70,65 @@
       <div class="sifirla"></div>
       <div class="baslik">Hobileriniz</div>
       <div class="iletisimform">
-        <label for="futbol">Futbol:</label>
-        <input type="checkbox" name="hobi" value="Futbol" />
+        <label for="hobi1">Futbol:</label>
+        <input
+          type="checkbox"
+          name="hobi[]"
+          value="Futbol"
+          id="hobi1"
+          v-model="hobi1"
+        />
       </div>
       <div class="iletisimform">
-        <label for="resim">Resim:</label>
-        <input type="checkbox" name="hobi" value="Resim" />
+        <label for="hobi2">Resim:</label>
+        <input
+          type="checkbox"
+          name="hobi[]"
+          value="Resim"
+          id="hobi2"
+          v-model="hobi2"
+        />
       </div>
       <div class="iletisimform">
-        <label for="muzik">Müzik:</label>
-        <input type="checkbox" name="hobi" value="Müzik" />
+        <label for="hobi3">Müzik:</label>
+        <input
+          type="checkbox"
+          name="hobi[]"
+          value="Müzik"
+          id="hobi3"
+          v-model="hobi3"
+        />
       </div>
       <div class="sifirla"></div>
       <div class="baslik">Hangi takımı tutuyorsunuz?</div>
       <div class="iletisimform">
-        <input type="radio" name="takım" value="Sakaryaspor" id="SkS" />
+        <input
+          type="radio"
+          name="takım"
+          value="Sakaryaspor"
+          id="SkS"
+          v-model="sks"
+        />
         <label for="SkS">Sakaryaspor</label>
       </div>
       <div class="iletisimform">
-        <input type="radio" name="takım" value="Fenerbahçe" id="FB" />
+        <input
+          type="radio"
+          name="takım"
+          value="Fenerbahçe"
+          id="FB"
+          v-model="fb"
+        />
         <label for="FB">Fenerbahçe</label>
       </div>
       <div class="iletisimform">
-        <input type="radio" name="takım" value="Galatasaray" id="GS" />
+        <input
+          type="radio"
+          name="takım"
+          value="Galatasaray"
+          id="GS"
+          v-model="gs"
+        />
         <label for="GS">Galatasaray</label>
       </div>
       <div class="sifirla"></div>
@@ -105,7 +145,12 @@
       </div>
       <div>
         <label for="tarayici">Listeden tarayıcınızı seçin veya yazın:</label>
-        <input list="tarayicilar" name="tarayici" id="tarayici" />
+        <input
+          list="tarayicilar"
+          name="tarayici"
+          id="tarayici"
+          v-model="tarayici"
+        />
         <datalist id="tarayicilar">
           <option value="Edge"></option>
           <option value="Firefox"></option>
@@ -116,21 +161,39 @@
       </div>
       <div>
         Açıklama: <br /><textarea
-          cols="50"
-          rows="50"
+          cols="40"
+          rows="15"
           name="acıklama"
+          v-model="acıklama"
           style="background-color: dodgerblue"
         ></textarea>
-        <input type="submit" name="Gonder" value="gonder" />
+        <input
+          type="submit"
+          class="btn btn-warning"
+          name="Gonder"
+          value="gonder"
+        />
+        <button type="button" class="btn btn-primary" onclick="Temizle()">
+          Temizle
+        </button>
       </div>
-      <button type="button" onclick="denetle()">javascript ile denetle</button>
+      <button type="button" class="btn btn-success" onclick="denetle()">
+        javascript ile denetle
+      </button>
+      <button type="button" class="btn btn-danger" @click="vueDenetle">
+        vue ile denetle
+      </button>
     </form>
-    <script type="text/javascript">
+    <script>
+      function Temizle() {
+        document.getElementById("myForm").reset();
+      }
       function denetle() {
         var frm = document.forms[0];
         var kontrol =
           /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+.)+([.])+[a-zA-Z0-9.-]{2,4}$/;
         var mail = document.getElementById("email").value;
+
         if (frm["ad"].value.length < 5) {
           alert("Ad geçersiz.En az 5 karakter içermelidir.");
           return 0;
@@ -151,6 +214,28 @@
           alert("Lütfen mail adresini doğru formatta girin.");
           return 0;
         }
+        if (
+          !document.getElementById("hobi1").checked &&
+          !document.getElementById("hobi2").checked &&
+          !document.getElementById("hobi3").checked
+        ) {
+          alert("Lütfen en az bir hobi seçiniz.");
+          return 0;
+        }
+        if (
+          !(
+            document.getElementById("SkS").checked ||
+            document.getElementById("FB").checked ||
+            document.getElementById("GS").checked
+          )
+        ) {
+          alert("Lütfen takım seçiniz.");
+          return 0;
+        }
+        if (frm["tarayici"].value.length < 1) {
+          alert("Lütfen bir tarayıcı adı yazın veya listeden seçin.");
+          return 0;
+        }
         if (frm["acıklama"].value.length < 10) {
           alert("En az 10 karakter uzunluğunda açıklama yazın.");
           return 0;
@@ -158,6 +243,66 @@
           alert("Herhangi bir sorun bulunumadı.");
         }
       }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const myForm = new Vue({
+        el: "#myForm",
+        data: {
+          ad: null,
+          soyad: null,
+          dgm: null,
+          sifre: null,
+          email: null,
+          hobi1: null,
+          hobi2: null,
+          hobi3: null,
+          sks: null,
+          fb: null,
+          gs: null,
+          tarayici: null,
+          acıklama: null,
+        },
+        methods: {
+          vueDenetle: function () {
+            if (!this.ad) {
+              alert("Lütfen isim giriniz.");
+              return 0;
+            }
+            if (!this.soyad) {
+              alert("Lütfen soyad giriniz.");
+              return 0;
+            }
+            if (!this.dgm) {
+              alert("Lütfen doğum tarihi girin.");
+              return 0;
+            }
+            if (!this.sifre) {
+              alert("Lütfen sifre girin.");
+              return 0;
+            }
+            if (!/^[^@]+@\w+(\.\w+)+\w$/.test(this.email)) {
+              alert("Lütfen email adresini doğru formatta yazın.");
+              return 0;
+            }
+            if (!this.hobi1 && !this.hobi2 && !this.hobi3) {
+              alert("Lütfen en az bir hobi seçin.");
+              return 0;
+            }
+            if (!this.sks && !this.fb && !this.gs) {
+              alert("Lütfen bir takım seçiniz.");
+            }
+            if (!this.tarayici) {
+              alert("Lütfen listeden bir tarayıcı seçiniz veya yazınız.");
+              return 0;
+            }
+            if (!this.acıklama) {
+              alert("Lütfen açıklama yazınız.");
+              return 0;
+            } else alert("Herhangi bir hata bulunamadı.");
+          },
+        },
+      });
     </script>
   </body>
 </html>
